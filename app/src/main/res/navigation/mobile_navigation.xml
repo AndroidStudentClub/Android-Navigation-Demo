@@ -50,4 +50,9 @@
             android:name="myarg"
             android:defaultValue="Android!" />
     </fragment>
+    <fragment
+        android:id="@+id/book_details_fragment"
+        android:name="com.example.android.demo.navigation.BookDetailsFragment"
+        android:label="book_details_fragment"
+        tools:layout="@layout/book_details_fragment" />
 </navigation>

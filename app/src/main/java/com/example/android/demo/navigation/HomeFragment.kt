@@ -37,8 +37,19 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun goToBookDetails() {
-        // TODO
+    private fun goToBookDetails(title: String) {
+        val options = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
+
+        val bundle = Bundle()
+        bundle.putString("title", title)
+        findNavController().navigate(R.id.book_details_fragment, bundle, options)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -14,7 +14,7 @@ import com.example.android.demo.navigation.R
 class BooksAdapter(
     private val movies: List<Book>,
     private val rowLayout: Int,
-    private val onClick: () -> Unit
+    private val onClick: (title:String) -> Unit
 ) : RecyclerView.Adapter<BooksAdapter.MovieViewHolder>() {
     class MovieViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         internal var bookTitle: TextView = v.findViewById(R.id.title)
@@ -34,7 +34,7 @@ class BooksAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val current = movies[position]
-        holder.container.setOnClickListener { onClick.invoke() }
+        holder.container.setOnClickListener { onClick.invoke(current.title) }
         holder.bookTitle.text = current.title
         holder.author.text = current.author
         holder.bookDescription.text = current.desc
