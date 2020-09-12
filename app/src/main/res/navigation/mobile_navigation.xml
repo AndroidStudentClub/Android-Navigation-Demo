@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/home_dest">
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.example.android.demo.navigation.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/home_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/flow_step_one_dest"
+        android:name="com.example.android.demo.navigation.FlowStepFragment"
+        tools:layout="@layout/flow_step_one_fragment">
+        <argument
+            android:name="flowStepNumber"
+            android:defaultValue="1"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/next_action"
+            app:destination="@+id/flow_step_two_dest"></action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/flow_step_two_dest"
+        android:name="com.example.android.demo.navigation.FlowStepFragment"
+        tools:layout="@layout/flow_step_two_fragment">
+
+        <argument
+            android:name="flowStepNumber"
+            android:defaultValue="2"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/next_action"
+            app:popUpTo="@id/home_dest"></action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorite_dest"
+        android:name="com.example.android.demo.navigation.FavoriteBooksFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/favorite_books_fragment">
+
+        <argument
+            android:name="myarg"
+            android:defaultValue="Android!" />
+    </fragment>
+</navigation>
